@@ -1,0 +1,20 @@
+0000000000000000000000000000000000000000 fbe111bac49fe5e53af71baa975538e2e905c712 Astrida Jablonskytė <astrida789@gmail.com> 1762353997 +0200	clone: from https://github.com/augustetum/blockchain-2.git
+fbe111bac49fe5e53af71baa975538e2e905c712 9baf8e07c7a3ea8922f41c860f2e7271c3dadb99 Astrida Jablonskytė <astrida789@gmail.com> 1762357669 +0200	commit: minor changes to some files
+9baf8e07c7a3ea8922f41c860f2e7271c3dadb99 c176a9ad7c002546052025056d978b3c2055b259 Astrida Jablonskytė <astrida789@gmail.com> 1762357684 +0200	commit (amend): minor changes to some files
+c176a9ad7c002546052025056d978b3c2055b259 b4e8b7d758bc5e13e98a99a23bb93641b59428eb Astrida Jablonskytė <astrida789@gmail.com> 1762357885 +0200	commit: added Makefile for both OS
+b4e8b7d758bc5e13e98a99a23bb93641b59428eb c9f2c8ea7ea654da8288d32f7496fc0562904581 Astrida Jablonskytė <astrida789@gmail.com> 1762357904 +0200	commit (amend): added Makefile for both OS
+c9f2c8ea7ea654da8288d32f7496fc0562904581 d7ba2795428a4a399da1fdf44a97bbc0e27427bf Astrida Jablonskytė <astrida789@gmail.com> 1762357974 +0200	commit: minor changes
+d7ba2795428a4a399da1fdf44a97bbc0e27427bf 74504e90c7bb41a0811e462aafd7b0c35733a1dd Astrida Jablonskytė <astrida789@gmail.com> 1762357996 +0200	commit (amend): minor changes
+74504e90c7bb41a0811e462aafd7b0c35733a1dd f3874e36dbb24ad2d2faf672124642528929bce4 Astrida Jablonskytė <astrida789@gmail.com> 1762368032 +0200	commit: added README.md
+f3874e36dbb24ad2d2faf672124642528929bce4 5cf9fc106b0ad0a2237568c6fb670abe58be7926 Astrida Jablonskytė <astrida789@gmail.com> 1762368060 +0200	commit (amend): added README.md
+5cf9fc106b0ad0a2237568c6fb670abe58be7926 3e2c67ad4b60dbf89075124513d52321d0d54020 Astrida Jablonskytė <astrida789@gmail.com> 1762368809 +0200	commit: Updated README.md
+3e2c67ad4b60dbf89075124513d52321d0d54020 42439ead99d6dae663e7b66d45eafecb4a8c1698 Astrida Jablonskytė <astrida789@gmail.com> 1762368824 +0200	commit (amend): Updated README.md
+42439ead99d6dae663e7b66d45eafecb4a8c1698 816a3ee93b9080959d316a9bc76ed1593fb6323b Astrida Jablonskytė <astrida789@gmail.com> 1762369647 +0200	commit: Updated README.md
+816a3ee93b9080959d316a9bc76ed1593fb6323b 8d20d0c789b9804ed597ba2d04a02ac85732845b Astrida Jablonskytė <astrida789@gmail.com> 1762369668 +0200	commit (amend): Updated README.md
+8d20d0c789b9804ed597ba2d04a02ac85732845b e46b3ae38744a759f18ef22c389f00c9cc7f7ccb Astrida Jablonskytė <astrida789@gmail.com> 1762370360 +0200	commit: updated README.md
+e46b3ae38744a759f18ef22c389f00c9cc7f7ccb 1a1b2b6c2ad56d530a1126a55edcf75276850bef Astrida Jablonskytė <astrida789@gmail.com> 1762370373 +0200	commit (amend): updated README.md
+1a1b2b6c2ad56d530a1126a55edcf75276850bef 49e432699829bef161a01cb202ca294256f8d44a Astrida Jablonskytė <astrida789@gmail.com> 1762381006 +0200	pull: Fast-forward
+49e432699829bef161a01cb202ca294256f8d44a c77d72c42ac784037910c74b8dbce0b1c222a922 Astrida Jablonskytė <astrida789@gmail.com> 1762381478 +0200	commit (merge): minor changes
+c77d72c42ac784037910c74b8dbce0b1c222a922 882ccbc7912c0c6a11f5f2f1674a9d55d7714a48 Astrida Jablonskytė <astrida789@gmail.com> 1762382913 +0200	commit: added transactions validation
+882ccbc7912c0c6a11f5f2f1674a9d55d7714a48 225af4a572d913c84c15ae8f3e2d1c8c2ce759f7 Astrida Jablonskytė <astrida789@gmail.com> 1762385280 +0200	commit: updated README.md
+225af4a572d913c84c15ae8f3e2d1c8c2ce759f7 10877a15f84cc1435aed4b04dbabd88761897477 Astrida Jablonskytė <astrida789@gmail.com> 1763992262 +0200	pull: Fast-forward
