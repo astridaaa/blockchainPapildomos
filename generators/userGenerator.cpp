@@ -10,7 +10,7 @@ using std::string;
 const int USER_AMOUNT = 1000;
 
 int main() {
-    std::ofstream userFile("users.txt");
+    std::ofstream userFile(".txt/users.txt");
     std::mt19937 gen(time(NULL)); 
     std::uniform_int_distribution<> distr(100, 1000000);
     std::ostringstream buferis; 

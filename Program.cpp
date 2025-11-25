@@ -3,9 +3,9 @@
 #include <chrono>
 #include <unordered_map>
 #include <fstream>
-#include "Transaction.h"
-#include "Block.h"
-#include "User.h"
+#include "include/Transaction.h"
+#include "include/Block.h"
+#include "include/User.h"
 
 std::unordered_map<std::string, User> loadUsersFromFile(const std::string& filename);
 std::vector<Transaction> loadTransactionsFromFile(const std::string& filename);
@@ -39,11 +39,11 @@ int main() {
         std::cout << "   Blockchain v0.1 " << std::endl;
         std::cout << "========================================\n" << std::endl;
 
-        auto users = loadUsersFromFile("users.txt");
+        auto users = loadUsersFromFile(".txt/users.txt");
         std::cout << "Loaded " << users.size() << " users\n" << std::endl;
 
         std::cout << "Loading transaction pool..." << std::endl;
-        auto transactionPool = loadTransactionsFromFile("transactions.txt");
+        auto transactionPool = loadTransactionsFromFile(".txt/transactions.txt");
 
         if (transactionPool.empty()) {
             std::cerr << "No transactions found. Please run transaction generator first." << std::endl;
@@ -68,8 +68,8 @@ int main() {
         std::cout << "Transactions remaining in pool: " << transactionPool.size() << std::endl;
         std::cout << "========================================\n" << std::endl;
 
-        saveBlockchainToFile(blockchain, "blockchain.txt");
-        saveUsersToFile(users, "users_updated.txt");
+        saveBlockchainToFile(blockchain, ".txt/blockchain.txt");
+        saveUsersToFile(users, ".txt/users_updated.txt");
 
         std::cout << "\nFirst Block:" << std::endl;
         blockchain[0].print();

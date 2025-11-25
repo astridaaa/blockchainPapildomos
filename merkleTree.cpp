@@ -1,10 +1,9 @@
-#include "merkleTree.h"
-#include "customGenerator.h"
+#include "include/merkleTree.h"
+#include "include/customGenerator.h"
 #include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <cmath>
-#include <openssl/sha.h>
 
 MerkleTree::MerkleTree(const std::vector<std::string> &data)
 {

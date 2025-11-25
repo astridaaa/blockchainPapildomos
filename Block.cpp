@@ -1,5 +1,5 @@
-#include "Block.h"
-#include "customGenerator.h"
+#include "include/Block.h"
+#include "include/customGenerator.h"
 #include <iostream>
 #include <iomanip>
 #include <atomic>

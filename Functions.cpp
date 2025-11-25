@@ -7,11 +7,11 @@
 #include <random>
 #include <atomic>
 #include <omp.h>
-#include "User.h"
+#include "include/User.h"
 #include <unordered_map>
-#include "customGenerator.h"
-#include "Transaction.h"
-#include "Block.h"
+#include "include/customGenerator.h"
+#include "include/Transaction.h"
+#include "include/Block.h"
 using std::string;
 std::unordered_map<std::string, User> loadUsersFromFile (const std::string& filename) {
     std::unordered_map<std::string, User> userMap; 

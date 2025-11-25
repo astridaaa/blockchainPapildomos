@@ -79,8 +79,8 @@ void saveToFile(const std::vector<Transaction>& transactions, const std::string&
 }
 
 int main() {
-    auto userPublicKeys = loadUsersFromFile("users.txt");
+    auto userPublicKeys = loadUsersFromFile(".txt/users.txt");
     auto transactions = generateTransactions(userPublicKeys, TRANSACTION_AMOUNT);
-    saveToFile(transactions, "transactions.txt");
+    saveToFile(transactions, ".txt/transactions.txt");
     return 0;
 }

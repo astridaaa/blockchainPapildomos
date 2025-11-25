@@ -1,4 +1,4 @@
-#include "BlockHeader.h"
+#include "include/BlockHeader.h"
 
 BlockHeader::BlockHeader(std::string prev, int diff, int ver)
     : prevBlockHash(prev), difficulty(diff), version(ver), nonce(0), merkle_root("") {

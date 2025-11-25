@@ -1,5 +1,5 @@
-#include "customGenerator.h"
-#include "merkleTree.h"
+#include "include/customGenerator.h"
+#include "include/merkleTree.h"
 #include <iostream>
 #include <vector>
 
