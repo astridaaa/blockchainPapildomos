@@ -27,22 +27,22 @@ blockchain$(EXE): Program.o Block.o BlockHeader.o Transaction.o Functions.o merk
 Program.o: Program.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c Program.cpp -o Program.o
 
-Block.o: Block.cpp Block.h
+Block.o: Block.cpp include/Block.h
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c Block.cpp -o Block.o
 
-BlockHeader.o: BlockHeader.cpp BlockHeader.h
+BlockHeader.o: BlockHeader.cpp include/BlockHeader.h
 	$(CXX) $(CXXFLAGS) -c BlockHeader.cpp -o BlockHeader.o
 
-Transaction.o: Transaction.cpp Transaction.h
+Transaction.o: Transaction.cpp include/Transaction.h
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c Transaction.cpp -o Transaction.o
 
 Functions.o: Functions.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c Functions.cpp -o Functions.o
 
-merkleTree.o: merkleTree.cpp merkleTree.h
+merkleTree.o: merkleTree.cpp include/merkleTree.h
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c merkleTree.cpp -o merkleTree.o
 
-customGenerator.o: customGenerator.cpp customGenerator.h
+customGenerator.o: customGenerator.cpp include/customGenerator.h
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c customGenerator.cpp -o customGenerator.o
 
 usergen$(EXE): generators/userGenerator.o customGenerator.o
