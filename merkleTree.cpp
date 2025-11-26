@@ -5,6 +5,12 @@
 #include <iomanip>
 #include <cmath>
 
+#ifdef USE_LIBBITCOIN
+#include <bitcoin/system.hpp>
+#include <algorithm>
+namespace bcs = libbitcoin::system;
+#endif
+
 MerkleTree::MerkleTree(const std::vector<std::string> &data)
 {
     if (data.empty())
@@ -158,28 +164,82 @@ void MerkleTree::printTree() const
     printNode(root, 0);
 }
 
+// libbitcoin implementation
 #ifdef USE_LIBBITCOIN
-#include "include/merkleTreeLibbitcoin.hpp"
+
+// Helper function to create merkle root
+static bcs::hash_digest create_merkle_internal(std::vector<bcs::hash_digest>& merkle)
+{
+    // Stop if hash list is empty or contains one element
+    if (merkle.empty())
+        return bcs::null_hash;
+    else if (merkle.size() == 1)
+        return merkle[0];
+    
+    // While there is more than 1 hash in the list, keep looping...
+    while (merkle.size() > 1)
+    {
+        // If number of hashes is odd, duplicate last hash in the list.
+        if (merkle.size() % 2 != 0)
+            merkle.push_back(merkle.back());
+        
+        // List size is now even.
+        assert(merkle.size() % 2 == 0);
+        
+        // New hash list.
+        std::vector<bcs::hash_digest> new_merkle;
+        
+        // Loop through hashes 2 at a time.
+        for (auto it = merkle.begin(); it != merkle.end(); it += 2)
+        {
+            // Join both current hashes together (concatenate).
+            bcs::data_chunk concat_data(bcs::hash_size * 2);
+            
+            // Copy first hash (32 bytes)
+            std::copy(it->begin(), it->end(), concat_data.begin());
+            
+            // Copy second hash (32 bytes)
+            std::copy((it + 1)->begin(), (it + 1)->end(), concat_data.begin() + bcs::hash_size);
+            
+            // Hash both of the hashes using sha256 double hash
+            bcs::hash_digest new_root = bcs::sha256::double_hash(concat_data);
+            
+            // Add this to the new list.
+            new_merkle.push_back(new_root);
+        }
+        
+        // This is the new list.
+        merkle = new_merkle;
+    }
+    
+    // Finally we end up with a single item.
+    return merkle[0];
+}
 
 std::string MerkleTree::getRootHashLibbitcoin(const std::vector<std::string>& txHashes)
 {
     std::vector<bcs::hash_digest> hashes;
     
-    // Convert hex strings to hash_digest
+    // Convert hex strings to hash_digest and reverse byte order
     for (const auto& hexHash : txHashes)
     {
         bcs::hash_digest hash;
-        if (hex_to_hash(hash, hexHash))
+        if (bcs::decode_base16(hash, hexHash))
         {
+            // IMPORTANT: Reverse byte order (Bitcoin displays in big-endian, processes in little-endian)
+            std::reverse(hash.begin(), hash.end());
             hashes.push_back(hash);
         }
     }
     
     // Calculate merkle root
-    bcs::hash_digest merkle_root = create_merkle_libbitcoin(hashes);
+    bcs::hash_digest merkle_root = create_merkle_internal(hashes);
+    
+    // Reverse the result back to display format (big-endian)
+    std::reverse(merkle_root.begin(), merkle_root.end());
     
     // Convert back to hex string
-    return hash_to_hex(merkle_root);
+    return bcs::encode_base16(merkle_root);
 }
 #else
 std::string MerkleTree::getRootHashLibbitcoin(const std::vector<std::string>& txHashes)
