@@ -20,8 +20,14 @@ void Block::buildMerkleTree() {
         txData.push_back(tx.getTransactionId());
     }
 
+#ifdef USE_LIBBITCOIN
+    // Use libbitcoin implementation
+    string merkleRoot = MerkleTree::getRootHashLibbitcoin(txData);
+#else
+    // Use custom implementation
     MerkleTree tree(txData);
     string merkleRoot = tree.getRootHash();
+#endif
 
     header.setMerkleRoot(merkleRoot);
 }

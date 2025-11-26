@@ -27,6 +27,9 @@ public:
     bool verify(const std::string &data, const std::vector<std::string> &proof, const std::string &rootHash) const;
     void printTree() const;
 
+    // NEW: libbitcoin implementation
+    static std::string getRootHashLibbitcoin(const std::vector<std::string>& txHashes);
+
 private:
     std::shared_ptr<Node> root;
     std::vector<std::string> leaves;

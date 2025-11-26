@@ -157,3 +157,34 @@ void MerkleTree::printTree() const
     std::cout << "Merkle Tree Structure:" << std::endl;
     printNode(root, 0);
 }
+
+#ifdef USE_LIBBITCOIN
+#include "include/merkleTreeLibbitcoin.hpp"
+
+std::string MerkleTree::getRootHashLibbitcoin(const std::vector<std::string>& txHashes)
+{
+    std::vector<bcs::hash_digest> hashes;
+    
+    // Convert hex strings to hash_digest
+    for (const auto& hexHash : txHashes)
+    {
+        bcs::hash_digest hash;
+        if (hex_to_hash(hash, hexHash))
+        {
+            hashes.push_back(hash);
+        }
+    }
+    
+    // Calculate merkle root
+    bcs::hash_digest merkle_root = create_merkle_libbitcoin(hashes);
+    
+    // Convert back to hex string
+    return hash_to_hex(merkle_root);
+}
+#else
+std::string MerkleTree::getRootHashLibbitcoin(const std::vector<std::string>& txHashes)
+{
+    std::cerr << "Error: libbitcoin not enabled. Recompile with USE_LIBBITCOIN flag." << std::endl;
+    return "";
+}
+#endif
